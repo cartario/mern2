@@ -12,7 +12,7 @@ router.post('/register',
     check('email', 'Неверный email').isEmail().exists(),
     check('password', 'Минимальная длина пароля не менее 6 символов').isLength({min: 6}).exists()
   ], async (req, res)=>{
-
+    
   const {email, password} = req.body;
 
   try {

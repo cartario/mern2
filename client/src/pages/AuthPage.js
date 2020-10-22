@@ -11,6 +11,37 @@ const AuthPage = () => {
     })
   }
 
+  const handleRegister = () => {
+    
+    const options = {
+      method: 'POST',
+      body: JSON.stringify(form),
+      headers: {...form}      
+    };  
+    
+    options.headers['Content-Type'] = 'application/json';
+
+    fetch('/api/auth/register', options).then((res)=>{      
+      console.log(res)
+    }).catch((err)=> console.log(err));
+  }
+
+  const handleLogin = () => {
+    
+    const options = {
+      method: 'POST',
+      body: JSON.stringify(form),
+      headers: {...form}      
+    };  
+    
+    options.headers['Content-Type'] = 'application/json';
+
+    fetch('/api/auth/login', options).then((res)=>{  
+        
+      console.log(res)
+    }).catch((err)=> console.log(err));
+  }
+
   return (
     <div className="container">
       <h1 className="mainTitlePage">MERN</h1>
@@ -37,8 +68,8 @@ const AuthPage = () => {
             type="password"
             className="auth__input"/>
         </div>
-        <button className="auth__signin btn" onClick={()=>console.log(form)}>Войти</button>
-        <button className="auth__signup btn" >Зарегистрироваться</button>
+        <button className="auth__signin btn" onClick={handleLogin}>Войти</button>
+        <button className="auth__signup btn" onClick={handleRegister}>Зарегистрироваться</button>
       </section>
     </div>
   );
