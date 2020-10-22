@@ -1,0 +1,83 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  
+  background: rgb(244, 247, 248);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.wrapper {
+  width: 1300px;
+  margin: 30px auto;
+  padding-bottom: 30px;
+  border-radius: 30px;  
+  background: white;
+}
+
+.container {
+  width: 90%;
+}
+
+.mainTitlePage {
+  text-align: center;
+}
+
+.auth {
+  width: 40%;
+  margin: 0 auto;
+  padding: 15px;
+  text-align: center;
+  background: lightseagreen;
+  border-radius: 5px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.btn {
+  margin: 5px;
+  background: white;
+
+  &:hover{
+    background: lightsalmon;
+  }
+
+  &:active {
+    background: lightcoral;
+  }
+}
+
+.auth__signin {
+  background: orange;
+}
+
+.auth__field {
+  display: flex;
+  justify-content: space-between;  
+  width: 60%;
+  margin: 10px auto;  
+}
+
+.auth__input {
+  width: 170px;
+  
+  padding: 0;
+  
+  outline: none;
+}
+
+.auth__label {
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  
+}
