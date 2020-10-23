@@ -55,7 +55,7 @@ router.post('/login', [
   try {
     const errors = validationResult(req);
       if (!errors.isEmpty()) {
-        res.status(400).json({ status: 'error', errors: errors.array()});
+        res.status(400).json({message: 'INVALID DATA: некорректные данные при входе', status: 'error', errors: errors.array()});        
         return;
       }
     

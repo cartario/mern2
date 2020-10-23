@@ -1,7 +1,18 @@
 import React from 'react';
+import useHttp from '../hooks/http.hook';
 
 const AuthPage = () => {
+  const {loading, request, error, clearError} = useHttp();  
   const [form, setForm] = React.useState({email: '', password: ''});
+  const [data, setData] = React.useState(null);
+  
+  React.useEffect(()=>{
+    setTimeout(clearError, 1000);    
+  }, [error]);
+
+  React.useEffect(()=>{
+    setTimeout(()=>{setData(null)}, 1000);    
+  }, [data]);
 
   const handleChange = (e) => {
     const target = e.target.value;
@@ -11,35 +22,23 @@ const AuthPage = () => {
     })
   }
 
-  const handleRegister = () => {
-    
-    const options = {
-      method: 'POST',
-      body: JSON.stringify(form),
-      headers: {...form}      
-    };  
-    
-    options.headers['Content-Type'] = 'application/json';
-
-    fetch('/api/auth/register', options).then((res)=>{      
-      console.log(res)
-    }).catch((err)=> console.log(err));
+  const handleRegister = async () => {
+    try {
+      const data = await request('/api/auth/register', 'POST', {...form});      
+    }
+    catch (err) {
+      console.log(err)
+    }
   }
 
-  const handleLogin = () => {
-    
-    const options = {
-      method: 'POST',
-      body: JSON.stringify(form),
-      headers: {...form}      
-    };  
-    
-    options.headers['Content-Type'] = 'application/json';
-
-    fetch('/api/auth/login', options).then((res)=>{  
-        
-      console.log(res)
-    }).catch((err)=> console.log(err));
+  const handleLogin = async () => {
+    try {
+      const data = await request('/api/auth/login', 'POST', {...form});
+      setData(data)      
+    }
+    catch(err){
+      
+    }    
   }
 
   return (
@@ -68,8 +67,10 @@ const AuthPage = () => {
             type="password"
             className="auth__input"/>
         </div>
-        <button className="auth__signin btn" onClick={handleLogin}>Войти</button>
-        <button className="auth__signup btn" onClick={handleRegister}>Зарегистрироваться</button>
+        {error ? <p style={{color: "red"}}>{error}</p> : ''}
+        {data ? <p style={{color: "green"}}>Success</p> : ''}
+        <button className="auth__signin btn" onClick={handleLogin} disabled={loading}>Войти</button>
+        <button className="auth__signup btn" onClick={handleRegister} disabled={loading}>Зарегистрироваться</button>
       </section>
     </div>
   );
