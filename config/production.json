@@ -1,0 +1,6 @@
+{
+  "PORT": 80,
+  "SECRET_KEY": "123456qwer",
+  "mongoURI": "mongodb+srv://cartario:vasil89@cluster0.nlown.mongodb.net/app?retryWrites=true&w=majority",
+  "baseUrl": "http://localhost:5000"
+}
