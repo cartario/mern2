@@ -66,10 +66,8 @@ code {
 }
 
 .auth__input {
-  width: 170px;
-  
-  padding: 0;
-  
+  width: 170px;  
+  padding: 0;  
   outline: none;
 }
 
@@ -80,4 +78,34 @@ code {
 
 .App {
   
+}
+
+////////////////
+
+$mobile-width: 600px;
+$tablet-width: 1000px;
+
+@media (max-width: $tablet-width) {
+  .wrapper {
+    width:100%;
+  }
+
+  .auth {
+    width: 425px;
+  }
+}
+
+@media  (max-width: $mobile-width) {
+  .wrapper {
+    width: 100%;
+  }
+  .auth {
+    width: 100%;
+  }
+  .auth__field {
+    width: 100%;
+  }
+  .auth__input {
+    width: 100%;
+  }
 }

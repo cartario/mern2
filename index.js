@@ -33,7 +33,7 @@ async function start () {
       useUnifiedTopology: true
     });
     app.listen(PORT, ()=>{
-      console.log(`SERVER RUNNING ON PORT ${PORT}`);
+      console.log(`SERVER RUNNING ON PORT ${PORT}, NODE_ENV=${process.env.NODE_ENV}`);
     });
   }
   catch(err){

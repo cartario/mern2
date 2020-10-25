@@ -4,7 +4,7 @@ import AuthPage from './pages/AuthPage';
 import ContentPage from './pages/ContentPage';
 import DetailPage from './pages/DetailPage';
 
-export const useRoutes = (isAuth) => {
+export const useRoutes = (isAuth, setAuth) => {
   if(isAuth){
     return (
       <Switch>
@@ -31,7 +31,7 @@ export const useRoutes = (isAuth) => {
   return (
     <Switch>
       <Route path="/">
-        <AuthPage />
+        <AuthPage setAuth={setAuth}/>
       </Route>
       <Redirect to="/" />
     </Switch>

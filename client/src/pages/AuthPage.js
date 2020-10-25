@@ -1,7 +1,7 @@
 import React from 'react';
 import useHttp from '../hooks/http.hook';
 
-const AuthPage = () => {
+const AuthPage = ({setAuth}) => {
   const {loading, request, error, clearError} = useHttp();  
   const [form, setForm] = React.useState({email: '', password: ''});
   const [data, setData] = React.useState(null);
@@ -34,7 +34,8 @@ const AuthPage = () => {
   const handleLogin = async () => {
     try {
       const data = await request('/api/auth/login', 'POST', {...form});
-      setData(data)      
+      setData(data);
+      setAuth(!!data)   
     }
     catch(err){
       
