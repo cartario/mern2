@@ -1,14 +1,19 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import { AuthContext } from '../context/auth.context';
 import useHttp from '../hooks/http.hook';
 
-const AuthPage = ({setAuth}) => {
-  const {loading, request, error, clearError} = useHttp();  
+
+const AuthPage = () => {
+  const auth = useContext(AuthContext);
+
+  const {loading, request, error, clearError} = useHttp();
+  
   const [form, setForm] = React.useState({email: '', password: ''});
   const [data, setData] = React.useState(null);
   
   React.useEffect(()=>{
     setTimeout(clearError, 1000);    
-  }, [error]);
+  }, [error, clearError]);
 
   React.useEffect(()=>{
     setTimeout(()=>{setData(null)}, 1000);    
@@ -24,10 +29,10 @@ const AuthPage = ({setAuth}) => {
 
   const handleRegister = async () => {
     try {
-      const data = await request('/api/auth/register', 'POST', {...form});      
+      await request('/api/auth/register', 'POST', {...form});      
     }
     catch (err) {
-      console.log(err)
+      
     }
   }
 
@@ -35,7 +40,8 @@ const AuthPage = ({setAuth}) => {
     try {
       const data = await request('/api/auth/login', 'POST', {...form});
       setData(data);
-      setAuth(!!data)   
+      auth.login(data.token, data.userId);
+      
     }
     catch(err){
       
