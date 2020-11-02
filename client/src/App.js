@@ -6,9 +6,7 @@ import Navbar from './components/navbar';
 
 
 function App() {  
-  const {token, userId, login, logout} = useAuth();
-
-  
+  const {token, userId, login, logout} = useAuth();  
   
   const isAuthenticated = !!token;  
   const routes = useRoutes(isAuthenticated);

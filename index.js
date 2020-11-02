@@ -2,12 +2,14 @@ const express = require('express');
 const dotenv = require('dotenv').config();
 const mongoose = require('mongoose');
 const router = require('./routes/auth.routes');
+const newRouter = require('./routes/new.routes');
 const path = require('path');
 
 const app = express();
 app.use(express.json({extended: true}));
 
 app.use('/api/auth', router);
+app.use('/app/new', newRouter);
 
 app.get('/test', (req, res)=>{  
   res.send({

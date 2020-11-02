@@ -78,8 +78,21 @@ code {
 
 .nav {
   display: flex;
-  justify-content: flex-end;
-  background: lightskyblue;
+  justify-content: space-between;
+  background: #1976d2;
+}
+
+.nav__logo {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  color: white;
+  text-decoration: none;
+  &:hover{
+    color: white;
+    background: #2196f3;
+    text-decoration: none;
+  }
 }
 
 .nav__list {
@@ -90,11 +103,26 @@ code {
   
 }
 
-.nav__item {
-  margin: 5px;
-  padding: 5px;
-  background: lightpink;
-  border-radius: 5px;
+.nav__item {  
+  padding: 15px;  
+
+  &:hover {
+    background: #2196f3;
+  }
+}
+
+.nav__item--logout {
+  background: #ffab00;
+}
+
+.nav__link {
+  padding: 15px;
+  color: white;
+  text-decoration: none;
+  &:hover{
+    color: white;
+    text-decoration: none;
+  }
 }
 
 ////////////////
