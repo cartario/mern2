@@ -5,7 +5,8 @@ const useHttp = () => {
   const [error, setError] = React.useState(null); 
 
   const request = useCallback(async (url, method='GET', body = null, headers={ }) => {
-    setLoading(true)
+    setLoading(true);
+    
     try {
       if(body){
         body = JSON.stringify(body);

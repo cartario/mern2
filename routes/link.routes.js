@@ -21,8 +21,8 @@ router.post('/generate', auth, async (req, res) => {
     const to = baseUrl + '/t/' + code;
 
     await LinkModel.create({ to, from, code , owner: req.user.userId});
-    const data = await LinkModel.findOne({ to });
-    res.status(201).json({ data });
+    const link = await LinkModel.findOne({ to });
+    res.status(201).json({ link });
   } catch (err) {
     res.status(500).json({
       message: 'что-то пошло не так',
@@ -32,7 +32,8 @@ router.post('/generate', auth, async (req, res) => {
 });
 
 router.get('/', async (req, res) => {
-  try {    
+  try { 
+    
     const links = await LinkModel.find({owner: req.user.userId});
     res.send({ links });
   } catch (err) {

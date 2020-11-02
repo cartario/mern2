@@ -40,8 +40,7 @@ const AuthPage = () => {
     try {
       const data = await request('/api/auth/login', 'POST', {...form});
       setData(data);
-      auth.login(data.token, data.userId);
-      
+      auth.login(data.token, data.userId);      
     }
     catch(err){
       

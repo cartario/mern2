@@ -125,6 +125,21 @@ code {
   }
 }
 
+.create {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin: 0 auto;
+}
+
+.create__input {
+  height: 50px;
+  font-size: 25px;
+  border: none;
+  border-bottom: 1px solid grey;
+  outline: none;
+}
+
 ////////////////
 
 $mobile-width: 600px;
