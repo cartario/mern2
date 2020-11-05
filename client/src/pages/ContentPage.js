@@ -4,7 +4,7 @@ import {AuthContext} from '../context/auth.context';
 import useHttp from '../hooks/http.hook';
 
 const ContentPage = () => {
-  const [link, setLink] = useState("");  
+  const [link, setLink] = useState("");
   const auth = useContext(AuthContext);
   const {request} = useHttp();
   const history = useHistory();

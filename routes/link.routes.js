@@ -31,8 +31,9 @@ router.post('/generate', auth, async (req, res) => {
   }
 });
 
-router.get('/', async (req, res) => {
-  try { 
+router.get('/', auth, async (req, res) => {
+  
+  try {
     
     const links = await LinkModel.find({owner: req.user.userId});
     res.send({ links });
@@ -43,8 +44,13 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/:id', async (req, res) => {
+router.get('/:id', auth, async (req, res) => {
   try {
+    const linkId = req.params.id;
+    
+    const link = await LinkModel.findById(linkId);
+    res.send({link})
+
   } catch (err) {
     res.status(500).json({
       message: 'что-то пошло не так',
