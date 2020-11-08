@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const router = require('./routes/auth.routes');
 const newRouter = require('./routes/new.routes');
 const linksRouter = require('./routes/link.routes');
+const redirectRouter = require('./routes/redirect.routes');
 const path = require('path');
 
 const app = express();
@@ -12,6 +13,7 @@ app.use(express.json({extended: true}));
 app.use('/api/auth', router);
 app.use('/app/new', newRouter);
 app.use('/api/links', linksRouter);
+app.use('/t', redirectRouter);
 
 app.get('/test', (req, res)=>{  
   res.send({

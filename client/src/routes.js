@@ -23,12 +23,12 @@ export const useRoutes = (isAuth) => {
         <Route path="/links" exact>        
           <LinksPage />
         </Route>
-        <Route path="/404">
+        {/* <Route path="/404">
           <div className="container">
             <h1 className="mainTitlePage">Not Found 404</h1>
           </div>          
         </Route>
-        <Redirect to="/404" />
+        <Redirect to="/404" /> */}
       </Switch>
     );
   } 
