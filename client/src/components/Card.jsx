@@ -3,12 +3,12 @@ import {useHistory} from 'react-router-dom';
 
 const LinkCard = ({ link }) => {
   const { to, from, clicks, date } = link;  
-console.log(to)
+
   return (
     <>
       <h2>Ссылка</h2>
       <p>
-        Сокращеннная ссылка: <a href={to}>{to}</a>
+        Сокращеннная ссылка: <a href={link.to}>{to}</a>
       </p>
       <p>Откуда: <a href={from}>{from}</a></p>
       <p>Количество кликов по ссылке: {clicks}</p>
